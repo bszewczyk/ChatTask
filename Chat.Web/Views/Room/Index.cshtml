@@ -1,0 +1,40 @@
+﻿@model Chat.Web.Models.RoomMessageVM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	@Scripts.Render("~/bundles/jquery")
+	<script src="../../Scripts/ChatRoom.js"></script>
+
+</head>
+<body>
+	<div id="RoomInfo"  style="margin-top:10px;">
+		<p>
+			<b>User: @Model.LoggedUserName</b>
+		</p><p>
+			<b>Room: @Model.RoomName</b>
+		</p>
+		@Html.HiddenFor(m=>m.RoomId)
+
+	</div>
+	<div id="chatMessages">
+		@{Html.RenderPartial("_History", Model.RoomMessages);}
+	</div>
+	<div id="messageArea">
+		<table border="0" width="100%">
+			<tr>
+				<td>
+					<textarea id="txtArea" style="width: 100%"></textarea>
+				</td>
+				
+			</tr>
+			<tr>
+				<td>
+					<button id="btnSend" value="Send" style="font-weight: bold; width: 80px">
+						Send
+					</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

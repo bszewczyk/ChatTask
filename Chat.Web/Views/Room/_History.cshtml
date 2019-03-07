@@ -1,0 +1,9 @@
+﻿@model IEnumerable <Chat.Database.DTO.RoomMessage>
+<div id="chatMessages">
+	@foreach (Chat.Database.DTO.RoomMessage msg in Model)
+	{
+		<p>
+			(@msg.SendTime) <b>@(msg.UserName + ":")</b>    @msg.MessageText
+		</p>
+	}
+</div>
